@@ -6,9 +6,11 @@
 function repeater(string, n){
   let newString
   let arr = []
+  //loop to push string to arr (n) times
   for (let i=1; i<=n; i++){
     arr.push(string)
   }
+  //join array to get new string
   newString = arr.join('')
   return newString
 }
@@ -17,4 +19,21 @@ function repeater(string, n){
 
 function repeater(string, n){
   return string.repeat(n)
+}
+
+// Your task is to make a function that can take any non-negative integer
+// as a argument and return it with its digits in descending order.
+// Essentially, rearrange the digits to create the highest possible number.
+// Examples:
+// Input: 21445 Output: 54421
+// Input: 145263 Output: 654321
+// Input: 1254859723 Output: 9875543221
+
+function descendingOrder(n){
+  //n to string to split individual numbers to an array
+  let arr = n.toString().split('')
+  //sort array, reverse to get descending then join
+  let descending = arr.sort().reverse().join('')
+  //parseInt string to number
+  return parseInt(descending)
 }
