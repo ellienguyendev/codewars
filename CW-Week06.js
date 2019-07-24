@@ -12,13 +12,13 @@
 
 function GetSum(a,b){
   let sum = 0;
-  if(a === b){
+  if(a === b){ //no numbers in between, just return number
     return a;
-  }else if(a < b){
+  }else if(a < b){// if a is greater than b, loop through all nums between and b and find sum
     for(a; a <= b; a++){
       sum += a;
     }
-  }else if(b < a){
+  }else if(b < a){// if b is greater than a, loop through all nums between and b and find sum
     for(b; b <= a; b++){
       sum += b;
     }

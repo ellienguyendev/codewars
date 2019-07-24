@@ -3,17 +3,17 @@
 // Assume the empty string is an isogram. Ignore letter case
 
 function isIsogram(str){
-   let firstLetter;
-   let nextLetter;
-   str = str.toLowerCase();
-   for(firstLetter = 0; firstLetter < str.length; ++firstLetter) {
-     for(nextLetter = firstLetter + 1; nextLetter < str.length; ++nextLetter) {
-       if(str[firstLetter] === str[nextLetter]) {
-         return false;
-       }
-     }
-   }
-   return true;
+  let firstLetter;
+  let nextLetter;
+  str = str.toLowerCase();
+  for(firstLetter = 0; firstLetter < str.length; ++firstLetter) {
+    for(nextLetter = firstLetter + 1; nextLetter < str.length; ++nextLetter) {
+      if(str[firstLetter] === str[nextLetter]) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 isIsogram ("isogram")
@@ -22,7 +22,11 @@ isIsogram ("isogram")
 //Each positive becomes negatives, and the negatives become positives.
 
 function invert(array) {
-   return array.map((num) => num > 0 ? -num : Math.abs(num));
+  for(let i=0;i<array.length;i++){
+    //multiplying each array element by -1 will give additive inverse
+    array[i] *= -1
+  }
+  return array
 }
 
 //Write function avg which calculates average of numbers in given list.
@@ -31,12 +35,12 @@ function find_average(array) {
   let average = 0
   let sum = 0
 
+  //add all elements in array, divide sum by number of elements
   for ( let i = 0; i < array.length; i++) {
-    let arrayNum = array[i]
-    sum += arrayNum
+    sum += array[i]
     average = sum / array.length
   }
-    return parseFloat(average)
+  return average
 }
 
 // Nathan loves cycling.
@@ -49,20 +53,22 @@ function find_average(array) {
 
 function litres(time) {
   let litres = time * 0.5;
-  litres = litres - litres%1;
-  return litres;
+  return Math.floor(litres)
 }
 
 //Rock Paper Scissors
 //Let's play! You have to return which player won! In case of a draw return Draw!.
 
-const rps = (p1, p2) => {
-  if (p1 === p2) return "Draw!";
-  let rules = {rock: "scissors", paper: "rock", scissors: "paper"};
-  if (p2 === rules[p1]) {
-    return "Player 1 won!";
+function rps (p1, p2){
+  if (p1 === p2) {
+    return "Draw!"
+  } else if (p1 === "rock" && p2 === "scissors"){
+    return "Player 1 won!"
+  } else if (p1 === "paper" && p2 === "rock"){
+    return "Player 1 won!"
+  } else if (p1 === "scissors" && p2 === "paper"){
+    return "Player 1 won!"
+  } else {
+    return "Player 2 won!"
   }
-  else {
-    return "Player 2 won!";
-  }
-};
+}
